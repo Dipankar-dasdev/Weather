@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iOS Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Animated background gradient -->
+        <div class="background-gradient"></div>
+
+        <!-- Main weather card -->
+        <div class="weather-card">
+            <!-- Header with title and controls -->
+            <div class="card-header">
+                <div class="header-top">
+                    <h1>Weather</h1>
+                    <div class="header-controls">
+                        <button id="geoBtn" class="geo-btn" aria-label="Use my location" title="Use my location">📍</button>
+                        <button id="themeToggle" class="theme-btn" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search section -->
+            <div class="search-section">
+                <div class="search-wrapper">
+                    <input 
+                        type="text" 
+                        id="cityInput" 
+                        class="city-input"
+                        placeholder="Search city..."
+                        aria-label="Enter city name"
+                    >
+                    <button id="searchBtn" class="search-btn" aria-label="Search weather">
+                        <span class="search-icon">🔍</span>
+                    </button>
+                </div>
+                <div id="errorMessage" class="error-message"></div>
+            </div>
+
+            <!-- Search History -->
+            <div id="searchHistorySection" class="history-section hidden">
+                <p class="history-label">Recent Searches</p>
+                <div id="searchHistory" class="history-container"></div>
+            </div>
+
+            <!-- Favorite Cities -->
+            <div id="favoritesSection" class="favorites-section hidden">
+                <p class="favorites-label">Favorite Cities</p>
+                <div id="favoritesList" class="favorites-container"></div>
+            </div>
+
+            <!-- Loading spinner -->
+            <div id="loadingSpinner" class="loading-spinner hidden">
+                <div class="spinner"></div>
+                <p>Fetching weather...</p>
+            </div>
+
+            <!-- Weather display section -->
+            <div id="weatherDisplay" class="weather-display hidden">
+                <!-- City name -->
+                <div class="city-name-section">
+                    <h2 id="cityName" class="city-name">-</h2>
+                    <p id="weatherCondition" class="weather-condition">-</p>
+                </div>
+
+                <!-- Temperature display -->
+                <div class="temperature-section">
+                    <img id="weatherIcon" class="weather-icon" src="" alt="Weather icon">
+                    <div class="temp-wrapper">
+                        <span id="temperature" class="temperature">--°</span>
+                    </div>
+                </div>
+
+                <!-- Additional info grid -->
+                <div class="info-grid">
+                    <!-- Humidity -->
+                    <div class="info-card">
+                        <div class="info-icon">💧</div>
+                        <div class="info-content">
+                            <p class="info-label">Humidity</p>
+                            <p id="humidity" class="info-value">--%</p>
+                        </div>
+                    </div>
+
+                    <!-- Feels Like -->
+                    <div class="info-card">
+                        <div class="info-icon">🌡️</div>
+                        <div class="info-content">
+                            <p class="info-label">Feels Like</p>
+                            <p id="feelsLike" class="info-value">--°C</p>
+                        </div>
+                    </div>
+
+                    <!-- Wind Speed -->
+                    <div class="info-card">
+                        <div class="info-icon">💨</div>
+                        <div class="info-content">
+                            <p class="info-label">Wind</p>
+                            <p id="windSpeed" class="info-value">-- m/s</p>
+                        </div>
+                    </div>
+
+                    <!-- Pressure -->
+                    <div class="info-card">
+                        <div class="info-icon">🌐</div>
+                        <div class="info-content">
+                            <p class="info-label">Pressure</p>
+                            <p id="pressure" class="info-value">-- hPa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Favorite button -->
+                <button id="favoriteBtn" class="favorite-btn">⭐ Add to Favorites</button>
+            </div>
+
+            <!-- Empty state -->
+            <div id="emptyState" class="empty-state">
+                <div class="empty-icon">🌤️</div>
+                <p>Enter a city name to see the weather</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
